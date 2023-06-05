@@ -149,36 +149,6 @@ def initiate_battle():
     # Pass the winner object to the template
     return render_template('battle_result.html', winner=winner)
 
-
-
-
-# MAIN
-# @main.route('/pokemon_battle/initiate', methods=['POST'])
-# @login_required
-# def initiate_battle():
-#     opponent_id = request.form.get('opponent_id')
-
-#     if opponent_id is None:
-#         return "Invalid request: opponent ID is missing."
-
-#     opponent_id = int(opponent_id)
-
-#     # Retrieve the opponent and their Pokémon team
-#     opponent = User.query.get(opponent_id)
-
-#     # Create the player's Pokémon team
-#     player_team = current_user.poke.all()  # Retrieve the Pokémon team as a list
-
-#     # Create the BattleGame instance
-#     battle_game = BattleGame(player_team, opponent.poke.all())
-
-#     # Calculate the winner
-#     winner = battle_game.calculate_winner()
-
-#     # Pass the battle result to the template
-#     return render_template('battle_result.html', winner=winner)
-
-
 @main.route('/pokemon_team')
 @login_required
 def pokemon_team():
