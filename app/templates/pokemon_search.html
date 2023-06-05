@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Pokemon Search
+{% endblock %}
+
+{% block content %}
+    <div class="mt-3">
+        <form method="POST" class="px-3">
+            {{ form.hidden_tag() }} 
+            {{ form.pokemon }}
+            {{ form.submit }}
+            {{ form.poke_name }}
+            {{ form.img_url }}
+            {{ form.ability }}
+            {{ form.hp }}
+            {{ form.attack }}
+            {{ form.defense }}
+        </form>
+    </div>
+
+    {% if pokemon_info %}
+        <div class="container">
+            <div class="d-flex justify-content-center">
+                <div class="card">
+                    <h2 class="card-title text-center">{{ pokemon_info.name }}</h2>
+                    <img src="{{ pokemon_info.front_shiny }}" alt="Pokemon Image" class="card-img-top img-fluid pokemon-image"> 
+                    <div class="card-body">
+                        <p class="card-text">Ability: {{ pokemon_info.ability }}</p>
+                        <p class="card-text">HP Stat: {{ pokemon_info.hp_stat }}</p>
+                        <p class="card-text">Attack Stat: {{ pokemon_info.attack_stat }}</p>
+                        <p class="card-text">Defense Stat: {{ pokemon_info.defense_stat }}</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <form method="POST" action="{{ url_for('main.add_pokemon') }}">
+                            {{ form.hidden_tag() }}  
+                            {{ form.poke_name }}
+                            {{ form.img_url }}
+                            {{ form.ability }}
+                            {{ form.hp }}
+                            {{ form.attack }}
+                            {{ form.defense }}
+                            {{ form.user_id }}
+                            <button type="submit" class="btn btn-custom">
+                                <img src="{{ url_for('static', filename='images/pokeball.png') }}" alt="Pokeball" class="pokeball-image">
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

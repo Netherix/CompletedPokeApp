@@ -1,0 +1,42 @@
+* {
+    font-family: Russo One;
+}
+
+#form-container {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    margin-top: 3rem;
+    padding: 2rem;
+}
+
+.pokemon-image {
+    max-width: 200px;
+    max-height: 200px;
+    display: block;
+    margin-top: -30px;
+    margin-bottom: -30px;
+}
+
+.pokeball-image {
+    max-width: 40% !important;
+    height: auto !important;
+}
+
+.btn-custom {
+    background-color: transparent;
+    border-color: transparent;
+    padding: 0; /* Reduce the padding */
+    border: none; /* Remove the border */
+    width: 100px;
+  }
+  
+.card-footer {
+    margin: 0;
+    width: 100%;
+}
+/* Potential background image idea for the pokemon card
+/* .card {
+    background-image: url('path/to/your/background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+} */

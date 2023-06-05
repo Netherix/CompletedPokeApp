@@ -1,0 +1,32 @@
+<!-- pokemon_team.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Your Pokémon Team</h1>
+
+  <div class="row">
+    {% for pokemon in team %}
+      <div class="col-md-2">
+        <div class="card mb-3">
+          <img src="{{ pokemon.img_url }}" class="pokemon-image card-img-top" alt="{{ pokemon.poke_name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ pokemon.poke_name }}</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Ability: {{ pokemon.ability }}</li>
+              <li class="list-group-item">HP: {{ pokemon.hp }}</li>
+              <li class="list-group-item">Attack: {{ pokemon.attack }}</li>
+              <li class="list-group-item">Defense: {{ pokemon.defense }}</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <form action="{{ url_for('main.delete_pokemon', poke_name=pokemon.poke_name) }}" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

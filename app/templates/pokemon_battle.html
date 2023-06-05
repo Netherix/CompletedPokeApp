@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h3>Other Users and Their Pokémon Teams</h3>
+  {% for user in opponents %}
+    <h4>{{ user.first_name }} 
+      <form action="{{ url_for('main.initiate_battle') }}" method="POST">
+        <input type="hidden" name="opponent_id" value="{{ user.id }}">
+        <button type="submit" class="btn btn-primary btn-sm">Battle This Trainer!</button>
+      </form>
+    </h4>
+    <div class="row">
+      {% for pokemon in user.poke %}
+        <div class="col-md-2">
+          <div class="card mb-3">
+            <img src="{{ pokemon.img_url }}" class="pokemon-image card-img-top" alt="{{ pokemon.poke_name }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ pokemon.poke_name }}</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">HP: {{ pokemon.hp }}</li>
+                <li class="list-group-item">Attack: {{ pokemon.attack }}</li>
+                <li class="list-group-item">Defense: {{ pokemon.defense }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+{% endblock %}

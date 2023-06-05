@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Log In Page
+{% endblock %}
+
+{% block content %}
+<h1 class ='text-center'>Pokemon Login Page</h1>
+<div class="container w-25" id="form-container">
+    <form method="POST" class="px-3">
+        {{ form.csrf_token }}
+        <div class="mb-3">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-control") }}
+        </div>
+        {{ form.submit(class="btn btn-primary d-block mx-auto") }}
+    </form>
+    {% if error %}
+        <p class="text-center mt-3 text-danger">{{ error }}</p>
+    {% endif %}
+</div>
+
+{% endblock %}

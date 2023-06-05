@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block content %}
+    <div class="mt-4 home_content ">
+        <div class="text-center">
+            <h1>Welcome to my Pokemon app!</h1>
+            <p>Click the cute little pikachu below to begin your Pokemon adventure!</p>
+        </div>
+        <a href="{{ url_for('main.pokemon_search') }}">
+            <img src="{{ url_for('static', filename='images/Pikachu.jpg') }}" 
+            alt="Pikachu" class="d-block mx-auto img-fluid" style="max-width: 200px;">
+        </a> 
+    </div>
+{% endblock %}
